@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: font-vault-shopify
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.0
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true
+
+databases:
+  - name: font-vault-db
+    databaseName: font_vault
+    user: font_vault_user

@@ -1,0 +1,55 @@
+{
+  "name": "Font Vault Shopify Custom Font Manager",
+  "description": "Upload custom fonts and control typography across your entire Shopify store",
+  "repository": "https://github.com/YOUR_USERNAME/font-vault-shopify",
+  "logo": "https://railway.app/brand/logo-light.png",
+  "keywords": [
+    "shopify",
+    "fonts",
+    "typography",
+    "ecommerce",
+    "custom-fonts"
+  ],
+  "services": [
+    {
+      "name": "font-vault-app",
+      "type": "web",
+      "plan": "starter",
+      "region": "us-west",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start",
+      "healthCheckPath": "/",
+      "envVars": {
+        "SHOPIFY_API_KEY": {
+          "description": "Your Shopify App Client ID from Partner Dashboard",
+          "required": true
+        },
+        "SHOPIFY_API_SECRET": {
+          "description": "Your Shopify App Client Secret from Partner Dashboard",
+          "required": true
+        },
+        "SCOPES": {
+          "description": "Required API scopes",
+          "value": "read_themes,write_themes,read_files,write_files",
+          "required": true
+        },
+        "NODE_ENV": {
+          "description": "Node environment",
+          "value": "production",
+          "required": true
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string (auto-filled by Railway)",
+          "required": true
+        }
+      }
+    }
+  ],
+  "databases": [
+    {
+      "name": "font-vault-db",
+      "type": "postgresql",
+      "plan": "starter"
+    }
+  ]
+}
